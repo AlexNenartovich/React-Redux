@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { fetchPosts, addPost } from "./Actions/actions";
+import { fetchPosts, addPost } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, CardActionArea, CarContent } from "@material-ui/core";
 
