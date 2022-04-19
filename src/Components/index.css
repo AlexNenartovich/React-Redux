@@ -1,0 +1,21 @@
+.posts {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+
+.counter {
+  font-size: 20px;
+}
+
+.container {
+  background-color: pink;
+  height: 50px;
+}
+
+.post-container {
+  background-color: azure;
+}
+
+.post-list {
+  background-color: yellowgreen;
+}

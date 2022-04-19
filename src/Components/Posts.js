@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { fetchPosts, addPost } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, CardActionArea, CarContent } from "@material-ui/core";
+import "./index.css";
 
 export default (props) => {
   const posts = useSelector((state) => state.posts.items);
@@ -26,7 +27,7 @@ export default (props) => {
   };
 
   const res = posts.map((post) => (
-    <Card>
+    <Card className="post-list">
       <CardActionArea>
         <h2>{post.title}</h2>
         <h3>{post.body}</h3>
@@ -35,7 +36,7 @@ export default (props) => {
   ));
 
   return (
-    <div>
+    <div className="post-container">
       <div>
         <input ref={titleRef} type="text" placeholder="Title" />
       </div>
