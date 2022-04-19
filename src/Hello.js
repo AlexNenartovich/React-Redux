@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { increment, decrement, fetchPosts, addPost } from "./Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
+import { Card, CardActionArea, CarContent } from "@material-ui/core";
 
 export default (props) => {
   const counter = useSelector((state) => state.counter.number);
@@ -33,10 +34,12 @@ export default (props) => {
   };
 
   const res = posts.map((post) => (
-    <div>
-      <h2>{post.title}</h2>
-      <h3>{post.body}</h3>
-    </div>
+    <Card>
+      <CardActionArea>
+        <h2>{post.title}</h2>
+        <h3>{post.body}</h3>
+      </CardActionArea>
+    </Card>
   ));
 
   return (
