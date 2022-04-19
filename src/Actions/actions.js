@@ -12,11 +12,28 @@ export const decrement = () => {
 };
 
 const load = (data) => {
-  //  console.log(data);
   return {
     type: FETCH_POSTS,
     payload: data
   };
+};
+
+const add = (post) => {
+  return {
+    type: "ADD_POST",
+    payload: post
+  };
+};
+
+export const addPost = (post) => async (dispatch) => {
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(post)
+  }).then((res) => res.json());
+  dispatch(add(post));
 };
 
 export const fetchPosts = () => async (dispatch) => {
