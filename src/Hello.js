@@ -13,6 +13,7 @@ export default (props) => {
     <div>
       <div>{counter}</div>
       <button onClick={onClick}>Increment</button>
+      <button onClick={onClick}>Decrement</button>
     </div>
   );
 };
