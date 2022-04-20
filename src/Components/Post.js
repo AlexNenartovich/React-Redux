@@ -1,7 +1,14 @@
 import React from "react";
-import { Card, CardActionArea } from "@material-ui/core";
+import { Card, CardActionArea, Button } from "@material-ui/core";
+import { addToFavorites } from "../Actions/actions";
+import { useSelector, useDispatch } from "react-redux";
 
 const Post = ({ post }) => {
+  const dispatch = useDispatch();
+  const toFavorites = (post) => {
+    dispatch(addToFavorites(post));
+  };
+
   return (
     <Card>
       <CardActionArea>
@@ -11,6 +18,7 @@ const Post = ({ post }) => {
         />
         <h2>{post.title}</h2>
         <h3>{post.body}</h3>
+        <Button onClick={() => toFavorites(post)}>Add to Favorites</Button>
       </CardActionArea>
     </Card>
   );

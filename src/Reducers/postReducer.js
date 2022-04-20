@@ -1,5 +1,6 @@
 const initialState = {
-  items: []
+  items: [],
+  favorites: []
 };
 
 const postReducer = (state = initialState, action) => {
@@ -13,6 +14,11 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         items: [action.payload].concat(state.items)
+      };
+    case "ADD_FAVORITE":
+      return {
+        ...state,
+        favorites: state.favorites.concat([action.payload])
       };
     default:
       return state;
