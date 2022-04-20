@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { fetchPosts, addPost } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, CardActionArea, CarContent } from "@material-ui/core";
+import Post from "./Post";
+import PostList from "./PostList";
 import "./index.css";
 
 export default (props) => {
@@ -26,19 +27,6 @@ export default (props) => {
     bodyRef.current.value = "";
   };
 
-  const res = posts.map((post) => (
-    <Card className="post-list">
-      <CardActionArea>
-        <img
-          style={{ height: 200, width: 300 }}
-          src="https://cdn.pixabay.com/photo/2021/09/02/16/48/cat-6593947_960_720.jpg"
-        />
-        <h2>{post.title}</h2>
-        <h3>{post.body}</h3>
-      </CardActionArea>
-    </Card>
-  ));
-
   return (
     <div className="post-container">
       <div>
@@ -50,7 +38,9 @@ export default (props) => {
       </div>
       <br />
       <button onClick={handleSubmit}>Submit</button>
-      <div>{res}</div>
+      <div>
+        <PostList data={posts} />
+      </div>
     </div>
   );
 };
