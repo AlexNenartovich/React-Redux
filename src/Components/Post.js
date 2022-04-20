@@ -4,9 +4,17 @@ import { addToFavorites } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Post = ({ post }) => {
+  const favorites = useSelector((state) => state.posts.favorites);
   const dispatch = useDispatch();
   const toFavorites = (post) => {
     dispatch(addToFavorites(post));
+  };
+
+  const isInFavorites = (post) => {
+    return favorites.some((elem) => {
+      if (elem.id === post.id) return true;
+      return false;
+    });
   };
 
   return (
@@ -18,7 +26,9 @@ const Post = ({ post }) => {
         />
         <h2>{post.title}</h2>
         <h3>{post.body}</h3>
-        <Button onClick={() => toFavorites(post)}>Add to Favorites</Button>
+        <Button onClick={() => toFavorites(post)}>
+          {!isInFavorites(post) ? "Add to Favorites" : "Remove from Favorites"}
+        </Button>
       </CardActionArea>
     </Card>
   );
