@@ -20,6 +20,13 @@ const postReducer = (state = initialState, action) => {
         ...state,
         favorites: state.favorites.concat([action.payload])
       };
+    case "REMOVE_FAVORITE":
+      return {
+        ...state,
+        favorites: state.favorites.filter(
+          (item) => item.id !== action.payload.id
+        )
+      };
     default:
       return state;
   }

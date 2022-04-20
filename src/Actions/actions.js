@@ -32,6 +32,13 @@ export const addToFavorites = (post) => {
   };
 };
 
+export const removeFromFavorites = (post) => {
+  return {
+    type: "REMOVE_FAVORITE",
+    payload: post
+  };
+};
+
 export const addPost = (post) => async (dispatch) => {
   const data = await fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",

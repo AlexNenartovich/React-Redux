@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, CardActionArea, Button } from "@material-ui/core";
-import { addToFavorites } from "../Actions/actions";
+import { addToFavorites, removeFromFavorites } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Post = ({ post }) => {
   const favorites = useSelector((state) => state.posts.favorites);
   const dispatch = useDispatch();
   const toFavorites = (post) => {
-    dispatch(addToFavorites(post));
+    if (!isInFavorites(post)) dispatch(addToFavorites(post));
+    else dispatch(removeFromFavorites(post));
   };
 
   const isInFavorites = (post) => {
