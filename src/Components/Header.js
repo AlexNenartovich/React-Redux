@@ -9,8 +9,11 @@ const Header = () => {
       <Button className="posts">
         <Link to="/">Posts</Link>
       </Button>
-      <Button>
+      <Button className="counter">
         <Link to="/counter">Counter</Link>
+      </Button>
+      <Button>
+        <Link to="/favorites">Favorites</Link>
       </Button>
     </div>
   );
