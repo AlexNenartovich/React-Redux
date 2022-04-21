@@ -26,18 +26,60 @@ const add = (post) => {
   };
 };
 
-export const addToFavorites = (post) => {
+const addFavoritePost = (post) => {
   return {
     type: "ADD_FAVORITE",
     payload: post
   };
 };
 
-export const removeFromFavorites = (post) => {
+export const addToFavorites = (post) => async (dispatch) => {
+  const data = await fetch(
+    "https://react-project-ada3d-default-rtdb.firebaseio.com/favorites.json",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(post)
+    }
+  ).then((res) => res.json());
+  console.log("After");
+  console.log(data);
+  dispatch(addFavoritePost(post));
+  // return {
+  // type: "ADD_FAVORITE",
+  //payload: post
+  //};
+};
+
+const remove = (post) => {
   return {
     type: "REMOVE_FAVORITE",
     payload: post
   };
+};
+
+export const removeFromFavorites = (post) => async (dispatch) => {
+  //console.log("Deleting");
+  //console.log(post.id);
+  const data = await fetch(
+    `https://react-project-ada3d-default-rtdb.firebaseio.com/favorites/${post.id}.json`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(post)
+    }
+  ).then((res) => res.json());
+  dispatch(remove(post));
+  /*
+  return {
+    type: "REMOVE_FAVORITE",
+    payload: post
+  };
+  */
 };
 
 export const addPost = (post) => async (dispatch) => {
