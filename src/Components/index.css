@@ -26,3 +26,14 @@
 .post-list {
   background-color: yellowgreen;
 }
+
+.badge {
+  background-color: #cc2062;
+  color: white;
+  border-radius: 12px;
+  padding: 0 0.8rem;
+}
+
+.nav {
+  padding-top: 7px;
+}
