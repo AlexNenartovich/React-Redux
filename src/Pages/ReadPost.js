@@ -1,10 +1,13 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
-export default ({ title, body }) => {
+export default () => {
+  const location = useLocation();
   return (
     <div>
-      <h1>{title}</h1>
-      <h2>{body}</h2>
+      <div>Hello!!!</div>
+      <h1>{location.state.title}</h1>
+      <h2>{location.state.body}</h2>
     </div>
   );
 };
