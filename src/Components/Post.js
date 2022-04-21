@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardActionArea, Button } from "@material-ui/core";
 import { addToFavorites, removeFromFavorites } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
+import "./index.css";
 
 const Post = ({ post }) => {
   const favorites = useSelector((state) => state.posts.favorites);

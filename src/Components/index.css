@@ -7,14 +7,19 @@
 }
 
 .container {
+  margin: 0 auto;
   position: sticky;
   top: 0;
   z-index: 1;
   background-color: pink;
   height: 50px;
+  width: 1550px;
 }
 
 .post-container {
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-right: 100px;
   background-color: azure;
 }
 
