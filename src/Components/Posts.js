@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { fetchPosts, addPost } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
-import Post from "./Post";
+import Button from "@material-ui/core/Button";
 import PostList from "./PostList";
 import "./index.css";
 
@@ -37,7 +37,11 @@ export default (props) => {
         <input ref={bodyRef} type="text" placeholder="Body" />
       </div>
       <br />
-      <button onClick={handleSubmit}>Submit</button>
+      <Button color="primary" variant="contained" onClick={handleSubmit}>
+        Submit
+      </Button>
+      <br />
+      <br />
       <div>
         <PostList data={posts} />
       </div>

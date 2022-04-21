@@ -27,9 +27,15 @@ const Post = ({ post }) => {
         />
         <h2>{post.title}</h2>
         <h3>{post.body}</h3>
-        <Button onClick={() => toFavorites(post)}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={() => toFavorites(post)}
+        >
           {!isInFavorites(post) ? "Add to Favorites" : "Remove from Favorites"}
         </Button>
+        <br />
+        <br />
       </CardActionArea>
     </Card>
   );
