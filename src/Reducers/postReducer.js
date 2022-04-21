@@ -13,7 +13,7 @@ const postReducer = (state = initialState, action) => {
     case "ADD_POST":
       return {
         ...state,
-        items: [action.payload].concat(state.items)
+        items: state.items.concat([action.payload])
       };
     case "ADD_FAVORITE":
       return {

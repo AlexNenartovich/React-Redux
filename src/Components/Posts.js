@@ -7,6 +7,7 @@ import "./index.css";
 
 export default (props) => {
   const posts = useSelector((state) => state.posts.items);
+  console.log(posts);
   const dispatch = useDispatch();
   const titleRef = useRef();
   const bodyRef = useRef();
