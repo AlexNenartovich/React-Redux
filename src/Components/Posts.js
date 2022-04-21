@@ -12,6 +12,7 @@ export default (props) => {
   const bodyRef = useRef();
 
   useEffect(() => {
+    titleRef.current.focus();
     dispatch(fetchPosts());
   }, []);
 

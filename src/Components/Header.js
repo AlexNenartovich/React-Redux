@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import "./index.css";
-import Badge from "@material-ui/core/Badge";
-import MailIcon from "@material-ui/icons/Mail";
 
 const Header = () => {
   const favCount = useSelector((state) => state.posts.favorites.length);
