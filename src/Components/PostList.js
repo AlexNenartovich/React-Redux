@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Post from "./Post";
 import InfiniteScroll from "react-infinite-scroll-component";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default ({ data }) => {
   const [slice, setSlice] = useState(10);
@@ -24,7 +25,7 @@ export default ({ data }) => {
       dataLength={slice}
       next={handleClick}
       hasMore={more}
-      loader={<h1>Loading...</h1>}
+      loader={<CircularProgress size="8rem" />}
       endMessage={<h2>You have reached the end</h2>}
     >
       <div>{res}</div>
