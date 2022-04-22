@@ -27,6 +27,11 @@ const postReducer = (state = initialState, action) => {
           (item) => item.id !== action.payload.id
         )
       };
+    case "FAVORITES":
+      return {
+        ...state,
+        favorites: action.payload
+      };
     default:
       return state;
   }

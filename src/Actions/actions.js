@@ -19,6 +19,13 @@ const load = (data) => {
   };
 };
 
+const loadFav = (data) => {
+  return {
+    type: "FAVORITES",
+    payload: data
+  };
+};
+
 const add = (post) => {
   return {
     type: "ADD_POST",
@@ -104,7 +111,6 @@ export const addPost = (post) => async (dispatch) => {
 };
 
 export const fetchPosts = () => async (dispatch) => {
-  console.log("Fetching");
   const data = await fetch(
     //  "https://jsonplaceholder.typicode.com/posts"
     "https://react-project-ada3d-default-rtdb.firebaseio.com/posts.json"
@@ -122,6 +128,24 @@ export const fetchPosts = () => async (dispatch) => {
       }
       return ar;
     });
+
+  const fav = await fetch(
+    //  "https://jsonplaceholder.typicode.com/posts"
+    "https://react-project-ada3d-default-rtdb.firebaseio.com/favorites.json"
+  )
+    .then((res) => res.json())
+    .then((post) => {
+      let ar = [];
+      for (const key in post) {
+        const obj = {
+          id: key,
+          ...post[key]
+        };
+        ar.push(obj);
+      }
+      return ar;
+    });
   //  dispatch(load(res))
   dispatch(load(data));
+  dispatch(loadFav(fav));
 };
