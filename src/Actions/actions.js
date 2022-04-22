@@ -63,8 +63,15 @@ const remove = (post) => {
 export const removeFromFavorites = (post) => async (dispatch) => {
   //console.log("Deleting");
   //console.log(post.id);
+  const rem = await fetch(
+    "https://react-project-ada3d-default-rtdb.firebaseio.com/favorites.json"
+  ).then((res) => res.json());
+  let del = "";
+  for (const key in rem) {
+    if (rem[key].id === post.id) del = key;
+  }
   const data = await fetch(
-    `https://react-project-ada3d-default-rtdb.firebaseio.com/favorites/${post.id}.json`,
+    `https://react-project-ada3d-default-rtdb.firebaseio.com/favorites/${del}.json`,
     {
       method: "DELETE",
       headers: {
