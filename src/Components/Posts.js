@@ -7,7 +7,6 @@ import "./index.css";
 
 export default (props) => {
   const posts = useSelector((state) => state.posts.items);
-  console.log(posts);
   const dispatch = useDispatch();
   const titleRef = useRef();
   const bodyRef = useRef();
@@ -23,7 +22,6 @@ export default (props) => {
       title: titleRef.current.value,
       body: bodyRef.current.value
     };
-    //  console.log(data);
     dispatch(addPost(data));
     titleRef.current.value = "";
     bodyRef.current.value = "";

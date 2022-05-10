@@ -12,7 +12,6 @@ export const decrement = () => {
 };
 
 const load = (data) => {
-  console.log("In load");
   return {
     type: FETCH_POSTS,
     payload: data
@@ -51,8 +50,6 @@ export const addToFavorites = (post) => async (dispatch) => {
       body: JSON.stringify(post)
     }
   ).then((res) => res.json());
-  console.log("After");
-  console.log(data);
   dispatch(addFavoritePost(post));
   // return {
   // type: "ADD_FAVORITE",
@@ -117,7 +114,6 @@ export const fetchPosts = () => async (dispatch) => {
   )
     .then((res) => res.json())
     .then((post) => {
-      console.log("Here");
       let ar = [];
       for (const key in post) {
         const obj = {
