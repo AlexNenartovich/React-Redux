@@ -18,7 +18,9 @@ export default ({ data }) => {
       setSlice(slice + incr);
     }, 2000);
   };
-  const res = data.slice(0, slice).map((post) => <Post post={post} />);
+  const res = data
+    .slice(0, slice)
+    .map((post, index) => <Post key={index} post={post} />);
 
   return (
     <InfiniteScroll
