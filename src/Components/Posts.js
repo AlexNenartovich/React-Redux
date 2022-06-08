@@ -43,7 +43,7 @@ export default (props) => {
       <br />
       <br />
       <div>
-        <PostList data={posts} />
+        <PostList displayDelete={true} data={posts} />
       </div>
     </div>
   );

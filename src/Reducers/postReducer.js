@@ -13,12 +13,17 @@ const postReducer = (state = initialState, action) => {
     case "ADD_POST":
       return {
         ...state,
-        items: state.items.concat([action.payload])
+        items: [action.payload].concat(state.items)
       };
     case "ADD_FAVORITE":
       return {
         ...state,
         favorites: state.favorites.concat([action.payload])
+      };
+    case "DELETE":
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload.id)
       };
     case "REMOVE_FAVORITE":
       return {

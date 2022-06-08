@@ -39,6 +39,34 @@ const addFavoritePost = (post) => {
   };
 };
 
+export const deletePost = (post) => async (dispatch) => {
+  const rem = await fetch(
+    "https://react-project-ada3d-default-rtdb.firebaseio.com/posts.json"
+  ).then((res) => res.json());
+  let del = "";
+  for (const key in rem) {
+    if (rem[key].id === post.id) del = key;
+  }
+  const data = await fetch(
+    `https://react-project-ada3d-default-rtdb.firebaseio.com/posts/${del}.json`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(post)
+    }
+  ).then((res) => res.json());
+  dispatch(deleteP(post));
+};
+
+const deleteP = (post) => {
+  return {
+    type: "DELETE",
+    payload: post
+  };
+};
+
 export const addToFavorites = (post) => async (dispatch) => {
   const data = await fetch(
     "https://react-project-ada3d-default-rtdb.firebaseio.com/favorites.json",

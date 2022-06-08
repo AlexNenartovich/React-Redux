@@ -1,11 +1,15 @@
 import React from "react";
 import { Card, CardActionArea, CardContent, Button } from "@material-ui/core";
-import { addToFavorites, removeFromFavorites } from "../Actions/actions";
+import {
+  addToFavorites,
+  removeFromFavorites,
+  deletePost
+} from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-const Post = ({ post }) => {
+const Post = ({ post, displayDelete }) => {
   const favorites = useSelector((state) => state.posts.favorites);
   const dispatch = useDispatch();
   const toFavorites = (post) => {
@@ -49,6 +53,9 @@ const Post = ({ post }) => {
       >
         {!isInFavorites(post) ? "Add to Favorites" : "Remove from Favorites"}
       </Button>
+      {displayDelete && (
+        <Button onClick={() => dispatch(deletePost(post))}>Delete</Button>
+      )}
       <br />
       <br />
     </div>

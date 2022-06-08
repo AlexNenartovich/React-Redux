@@ -7,7 +7,7 @@ const Favorites = () => {
   const favorites = useSelector((state) => state.posts.favorites);
   return (
     <div className="post-container">
-      <PostList data={favorites} />
+      <PostList displayDelete={false} data={favorites} />
     </div>
   );
 };
