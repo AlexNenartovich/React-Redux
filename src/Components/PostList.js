@@ -10,8 +10,12 @@ export default ({ data, displayDelete }) => {
   const len = data.length;
 
   const handleClick = () => {
-    if (slice + incr > len) {
+    if (slice === len) {
       setMore(false);
+      return;
+    } else if (slice + incr > len) {
+      //    setMore(false);
+      setSlice(len);
       return;
     }
     setTimeout(() => {
