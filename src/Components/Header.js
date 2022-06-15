@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import "./index.css";
 
 const Header = () => {
+  let activeStyle = {
+    textDecoration: "underline"
+  };
+  let activeClassName = "underline";
   const favCount = useSelector((state) => state.posts.favorites.length);
   const style = {
     textDecoration: "none",
@@ -12,27 +16,48 @@ const Header = () => {
     fontWeight: "bold"
   };
   return (
-    <div className="container">
+    <nav className="container">
       <nav className="nav">
         <Button className="posts">
-          <Link style={style} to="/">
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? { color: "blue", fontWeight: "bold" }
+                : { color: "black", textDecoration: "none", fontWeight: "bold" }
+            }
+            to="/"
+          >
             Posts
-          </Link>
+          </NavLink>
         </Button>
         <Button className="counter">
-          <Link style={style} to="/counter">
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? { color: "blue", fontWeight: "bold" }
+                : { color: "black", textDecoration: "none", fontWeight: "bold" }
+            }
+            to="/counter"
+          >
             Counter
-          </Link>
+          </NavLink>
         </Button>
         <Button>
-          <Link style={style} to="/favorites">
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? { color: "blue", fontWeight: "bold" }
+                : { color: "black", textDecoration: "none", fontWeight: "bold" }
+            }
+            to="favorites"
+          >
             Favorites
-          </Link>
+          </NavLink>
         </Button>
         <span className="badge">{favCount}</span>
       </nav>
-    </div>
+    </nav>
   );
 };
 
-export default Header;
+export default React.memo(Header);
