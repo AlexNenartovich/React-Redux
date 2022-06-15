@@ -9,6 +9,8 @@ import ReadPost from "./Pages/ReadPost";
 import Favorites from "./Components/Favorites";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import store from "./store";
+import Edit from "./Pages/edit";
+
 class App extends React.Component {
   render() {
     return (
@@ -19,6 +21,7 @@ class App extends React.Component {
           <Route path="/counter" element={<Counter />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/read" element={<ReadPost />} />
+          <Route path="/:id/edit" element={<Edit />} />
         </Routes>
       </Router>
     );
