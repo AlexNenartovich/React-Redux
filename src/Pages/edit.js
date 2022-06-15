@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Edit = (props) => {
   const params = useParams();
-  //  console.log(params.id)
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [dataKey, setDatakey] = useState("");
 
   useEffect(() => {
     fetch(`https://react-project-ada3d-default-rtdb.firebaseio.com/posts.json/`)
@@ -14,6 +15,7 @@ const Edit = (props) => {
         let ar = [];
         for (const key in data) {
           if (data[key].id == params.id) {
+            setDatakey(key);
             ar.push(data[key]);
           }
         }
@@ -22,22 +24,59 @@ const Edit = (props) => {
       });
   }, []);
 
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleBodyChange = (e) => {
+    setBody(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const upd = {
+      title,
+      body
+    };
+    fetch(
+      `https://react-project-ada3d-default-rtdb.firebaseio.com/posts/${dataKey}.json`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(upd)
+      }
+    ).then(() => navigate("/"));
+  };
+
   return (
     <div>
       <div>
         <label>Title</label>
       </div>
       <div>
-        <input value={title} type="text" />
+        <textarea
+          onChange={handleTitleChange}
+          name="title"
+          style={{ height: 50, width: 300 }}
+          value={title}
+          type="text"
+        />
       </div>
       <div>
         <label>Body</label>
       </div>
       <div>
-        <textarea value={body} />
+        <textarea
+          onChange={handleBodyChange}
+          name="body"
+          style={{ height: 500, width: 300 }}
+          value={body}
+        />
       </div>
       <div>
-        <button>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
     </div>
   );
