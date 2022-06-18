@@ -2,8 +2,16 @@
   margin-right: 50px;
 }
 
+.posts:hover {
+  background-color: #ccc;
+}
+
 .counter {
   margin-right: 50px;
+}
+
+.counter:hover {
+  background-color: #ccc;
 }
 
 .container {
@@ -36,4 +44,8 @@
 
 .nav {
   padding-top: 7px;
+}
+
+.favorites:hover {
+  background-color: #ccc;
 }

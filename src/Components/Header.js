@@ -42,7 +42,7 @@ const Header = () => {
             Counter
           </NavLink>
         </Button>
-        <Button>
+        <Button className="favorites">
           <NavLink
             style={({ isActive }) =>
               isActive
