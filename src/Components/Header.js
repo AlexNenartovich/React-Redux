@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <nav className="container">
       <nav className="nav">
-        <Button className="posts">
+        <Button className="posts" title="Posts">
           <NavLink
             style={({ isActive }) =>
               isActive
@@ -30,7 +30,7 @@ const Header = () => {
             Posts
           </NavLink>
         </Button>
-        <Button className="counter">
+        <Button className="counter" title="Counter">
           <NavLink
             style={({ isActive }) =>
               isActive
@@ -42,7 +42,7 @@ const Header = () => {
             Counter
           </NavLink>
         </Button>
-        <Button className="favorites">
+        <Button className="favorites" title="Favorites">
           <NavLink
             style={({ isActive }) =>
               isActive
