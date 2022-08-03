@@ -18,7 +18,8 @@
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
     "@material-ui/icons": "4.11.3",
-    "react-infinite-scroll-component": "6.1.0"
+    "react-infinite-scroll-component": "6.1.0",
+    "uglify-js-es6": "2.8.9"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"
