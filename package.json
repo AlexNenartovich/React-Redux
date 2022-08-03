@@ -23,6 +23,10 @@
     "preinstall": "npx npm-force-resolutions",     
     "heroku-postbuild": "npm --legacy-peer-deps"
   },
+  "engines": {
+    "node": "15.5.1",
+    "npm": "7.3.0"
+  },
   "devDependencies": {
     "react-scripts": "1.0.0"
   },
