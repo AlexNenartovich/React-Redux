@@ -19,9 +19,7 @@
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
     "@material-ui/icons": "4.11.3",
-    "react-infinite-scroll-component": "6.1.0",
-    "preinstall": "npx npm-force-resolutions",     
-    "heroku-postbuild": "npm --legacy-peer-deps"
+    "react-infinite-scroll-component": "6.1.0"
   },
   "engines": {
     "node": "15.5.1",
