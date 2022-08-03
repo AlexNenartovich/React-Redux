@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Grid, Row, Col } from "react-flexbox-grid";
 import { Provider } from "react-redux";
 import Counter from "./Components/counter";
 import Posts from "./Components/Posts";
