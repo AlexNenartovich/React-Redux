@@ -5,11 +5,13 @@ import "./index.css";
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.posts.favorites);
-  return (
-    <div className="post-container">
-      <PostList displayDelete={false} data={favorites} />
-    </div>
-  );
+  let res = "";
+  if (favorites.length === 0) {
+    res = <h2>You currently have no favorite posts</h2>;
+  } else {
+    res = <PostList displayDelete={false} data={favorites} />;
+  }
+  return <div className="post-container">{res}</div>;
 };
 
 export default Favorites;
