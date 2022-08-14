@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../Actions/actions";
-
+import { CounterContext } from "../Context/store";
 const Counter = () => {
+  const context = useContext(CounterContext);
+  // console.log(context.add)
+
   const counter = useSelector((state) => state.counter.number);
   const dispatch = useDispatch();
   const incr = () => {
@@ -15,9 +18,9 @@ const Counter = () => {
 
   return (
     <div>
-      <div>{counter}</div>
-      <button onClick={incr}>Increment</button>
-      <button onClick={decr}>Decrement</button>
+      <div>{context.num}</div>
+      <button onClick={context.add}>Increment</button>
+      <button onClick={context.subtract}>Decrement</button>
     </div>
   );
 };

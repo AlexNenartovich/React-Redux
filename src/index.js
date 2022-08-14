@@ -9,6 +9,7 @@ import Favorites from "./Components/Favorites";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import store from "./store";
 import Edit from "./Pages/edit";
+import ContextProvider from "./Context/store";
 
 class App extends React.Component {
   render() {
@@ -29,8 +30,10 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ContextProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ContextProvider>,
   document.getElementById("container")
 );
