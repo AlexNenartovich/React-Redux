@@ -7,6 +7,8 @@ import "./index.css";
 
 export default (props) => {
   const posts = useSelector((state) => state.posts.items);
+  const search = useSelector((state) => state.posts.searchParam);
+  //  console.log("Word is " + search);
   const dispatch = useDispatch();
   const titleRef = useRef();
   const bodyRef = useRef();
@@ -15,6 +17,10 @@ export default (props) => {
     titleRef.current.focus();
     dispatch(fetchPosts());
   }, []);
+
+  const resposts = posts.filter((post) =>
+    JSON.stringify(post).includes(search)
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +49,7 @@ export default (props) => {
       <br />
       <br />
       <div>
-        <PostList displayDelete={true} data={posts} />
+        <PostList displayDelete={true} data={resposts} />
       </div>
     </div>
   );

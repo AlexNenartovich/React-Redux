@@ -1,6 +1,7 @@
 const initialState = {
   items: [],
-  favorites: []
+  favorites: [],
+  searchParam: ""
 };
 
 const postReducer = (state = initialState, action) => {
@@ -9,6 +10,12 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload
+      };
+    case "SEARCH":
+      //   console.log(action.payload);
+      return {
+        ...state,
+        searchParam: action.payload
       };
     case "ADD_POST":
       return {

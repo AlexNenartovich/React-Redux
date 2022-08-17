@@ -5,6 +5,14 @@ export const increment = () => {
   };
 };
 
+export const search = (word) => {
+  // console.log("Searching");
+  return {
+    type: "SEARCH",
+    payload: word
+  };
+};
+
 export const decrement = () => {
   return {
     type: DECREMENT
