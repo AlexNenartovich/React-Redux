@@ -63,7 +63,7 @@ const Header = () => {
           </NavLink>
         </Button>
         <span className="badge">{favCount}</span>
-        <span>
+        <span style={{ paddingLeft: 800 }}>
           <input onChange={handleChange} placeholder="Search" />
         </span>
       </nav>
