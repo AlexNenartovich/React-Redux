@@ -77,6 +77,9 @@ const Edit = (props) => {
       </div>
       <div>
         <button onClick={handleSubmit}>Submit</button>
+        <span>
+          <button onClick={() => navigate("/")}>Cancel</button>
+        </span>
       </div>
     </div>
   );

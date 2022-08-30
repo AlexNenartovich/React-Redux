@@ -21,7 +21,7 @@ class App extends React.Component {
           <Route path="/counter" element={<Counter />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/read" element={<ReadPost />} />
-          <Route path="/:id/edit" element={<Edit />} />
+          <Route path="/edit/:id" element={<Edit />} />
           <Route path="/favorites/:id/edit" element={<Edit />} />
         </Routes>
       </Router>

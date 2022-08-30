@@ -41,7 +41,7 @@ const Post = ({ post, displayDelete }) => {
                 src="https://cdn.pixabay.com/photo/2021/09/02/16/48/cat-6593947_960_720.jpg"
               />
               <h2>{post.title}</h2>
-              <h3>{post.body}</h3>
+              <h3>{post.body.slice(0, 50)}...</h3>
             </CardContent>
           </CardActionArea>
         </Card>
@@ -56,7 +56,7 @@ const Post = ({ post, displayDelete }) => {
       {displayDelete && (
         <Button onClick={() => dispatch(deletePost(post))}>Delete</Button>
       )}
-      <Link style={{ textDecoration: "none" }} to={`${post.id}/edit`}>
+      <Link style={{ textDecoration: "none" }} to={`edit/${post.id}`}>
         <Button>Edit</Button>
       </Link>
       <br />
