@@ -8,7 +8,6 @@ import "./index.css";
 export default (props) => {
   const posts = useSelector((state) => state.posts.items);
   const search = useSelector((state) => state.posts.searchParam);
-  //  console.log("Word is " + search);
   const dispatch = useDispatch();
   const titleRef = useRef();
   const bodyRef = useRef();
@@ -25,6 +24,7 @@ export default (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
+      id: posts[posts.length - 1]["id"] + 1,
       title: titleRef.current.value,
       body: bodyRef.current.value
     };

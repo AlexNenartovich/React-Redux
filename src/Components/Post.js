@@ -56,7 +56,7 @@ const Post = ({ post, displayDelete }) => {
       {displayDelete && (
         <Button onClick={() => dispatch(deletePost(post))}>Delete</Button>
       )}
-      <Link style={{ textDecoration: "none" }} to={`edit/${post.id}`}>
+      <Link style={{ textDecoration: "none" }} to={`edit?id=${post.id}`}>
         <Button>Edit</Button>
       </Link>
       <br />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
 const Edit = (props) => {
   const params = useParams();
@@ -8,13 +8,15 @@ const Edit = (props) => {
   const [body, setBody] = useState("");
   const [dataKey, setDatakey] = useState("");
 
+  const [sear] = useSearchParams();
+  console.log(sear.get("id"));
   useEffect(() => {
     fetch(`https://react-project-ada3d-default-rtdb.firebaseio.com/posts.json/`)
       .then((res) => res.json())
       .then((data) => {
         let ar = [];
         for (const key in data) {
-          if (data[key].id == params.id) {
+          if (data[key].id === parseInt(sear.get("id"), 10)) {
             setDatakey(key);
             ar.push(data[key]);
           }
