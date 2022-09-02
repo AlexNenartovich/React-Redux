@@ -40,12 +40,19 @@ export default (props) => {
       </div>
       <br />
       <div>
-        <input ref={bodyRef} type="text" placeholder="Body" />
+        <textarea
+          style={{ height: 100 }}
+          ref={bodyRef}
+          type="text"
+          placeholder="Body"
+        />
       </div>
       <br />
-      <Button color="primary" variant="contained" onClick={handleSubmit}>
-        Submit
-      </Button>
+      <div style={{ paddingLeft: 70 }}>
+        <Button color="primary" variant="contained" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </div>
       <br />
       <br />
       <div>

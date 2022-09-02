@@ -30,7 +30,7 @@ const Header = () => {
           <NavLink
             style={({ isActive }) =>
               isActive
-                ? { color: "blue", fontWeight: "bold" }
+                ? { color: "blue", fontWeight: "bold", textDecoration: "none" }
                 : { color: "black", textDecoration: "none", fontWeight: "bold" }
             }
             to="/"
@@ -42,7 +42,7 @@ const Header = () => {
           <NavLink
             style={({ isActive }) =>
               isActive
-                ? { color: "blue", fontWeight: "bold" }
+                ? { color: "blue", fontWeight: "bold", textDecoration: "none" }
                 : { color: "black", textDecoration: "none", fontWeight: "bold" }
             }
             to="/counter"
@@ -54,7 +54,7 @@ const Header = () => {
           <NavLink
             style={({ isActive }) =>
               isActive
-                ? { color: "blue", fontWeight: "bold" }
+                ? { color: "blue", fontWeight: "bold", textDecoration: "none" }
                 : { color: "black", textDecoration: "none", fontWeight: "bold" }
             }
             to="favorites"
