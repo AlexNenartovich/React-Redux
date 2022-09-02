@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import store from "./store";
 import Edit from "./Pages/edit";
 import ContextProvider from "./Context/store";
-
+import AddMeetup from "./Pages/addMeetup";
 class App extends React.Component {
   render() {
     return (
@@ -23,6 +23,7 @@ class App extends React.Component {
           <Route path="/read" element={<ReadPost />} />
           <Route path="/edit" element={<Edit />} />
           <Route path="/favorites/:id/edit" element={<Edit />} />
+          <Route path="/add" element={<AddMeetup />} />
         </Routes>
       </Router>
     );

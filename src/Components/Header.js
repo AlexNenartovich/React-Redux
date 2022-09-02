@@ -62,6 +62,18 @@ const Header = () => {
             Favorites
           </NavLink>
         </Button>
+        <Button className="add" title="Add">
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? { color: "blue", fontWeight: "bold", textDecoration: "none" }
+                : { color: "black", textDecoration: "none", fontWeight: "bold" }
+            }
+            to="add"
+          >
+            Add
+          </NavLink>
+        </Button>
         <span className="badge">{favCount}</span>
         <span style={{ paddingLeft: 800 }}>
           <input onChange={handleChange} placeholder="Search" />

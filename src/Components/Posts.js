@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from "react";
-import { fetchPosts, addPost } from "../Actions/actions";
+import React, { useEffect } from "react";
+import { fetchPosts } from "../Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
-import Button from "@material-ui/core/Button";
 import PostList from "./PostList";
 import "./index.css";
 
@@ -9,11 +8,8 @@ export default (props) => {
   const posts = useSelector((state) => state.posts.items);
   const search = useSelector((state) => state.posts.searchParam);
   const dispatch = useDispatch();
-  const titleRef = useRef();
-  const bodyRef = useRef();
 
   useEffect(() => {
-    titleRef.current.focus();
     dispatch(fetchPosts());
   }, []);
 
@@ -21,40 +17,8 @@ export default (props) => {
     JSON.stringify(post).includes(search)
   );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = {
-      id: posts[posts.length - 1]["id"] + 1,
-      title: titleRef.current.value,
-      body: bodyRef.current.value
-    };
-    dispatch(addPost(data));
-    titleRef.current.value = "";
-    bodyRef.current.value = "";
-  };
-
   return (
     <div className="post-container">
-      <div>
-        <input ref={titleRef} type="text" placeholder="Title" />
-      </div>
-      <br />
-      <div>
-        <textarea
-          style={{ height: 100 }}
-          ref={bodyRef}
-          type="text"
-          placeholder="Body"
-        />
-      </div>
-      <br />
-      <div style={{ paddingLeft: 70 }}>
-        <Button color="primary" variant="contained" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </div>
-      <br />
-      <br />
       <div>
         <PostList displayDelete={true} data={resposts} />
       </div>
