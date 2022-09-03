@@ -13,7 +13,7 @@ const Favorites = () => {
   if (favorites.length === 0) {
     res = <h2>You currently have no favorite posts</h2>;
   } else {
-    res = <PostList displayDelete={false} data={resfav} />;
+    res = <PostList type="favorites" displayDelete={false} data={resfav} />;
   }
   return <div className="post-container">{res}</div>;
 };

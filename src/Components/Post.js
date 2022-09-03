@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-const Post = ({ post, displayDelete }) => {
+const Post = ({ post, displayDelete, type }) => {
   const favorites = useSelector((state) => state.posts.favorites);
   const dispatch = useDispatch();
   const toFavorites = (post) => {
@@ -56,7 +56,11 @@ const Post = ({ post, displayDelete }) => {
       {displayDelete && (
         <Button onClick={() => dispatch(deletePost(post))}>Delete</Button>
       )}
-      <Link style={{ textDecoration: "none" }} to={`edit?id=${post.id}`}>
+      <Link
+        style={{ textDecoration: "none" }}
+        state={{ type: type }}
+        to={`edit?id=${post.id}`}
+      >
         <Button>Edit</Button>
       </Link>
       <br />

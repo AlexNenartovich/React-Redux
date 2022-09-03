@@ -20,7 +20,7 @@ export default (props) => {
   return (
     <div className="post-container">
       <div>
-        <PostList displayDelete={true} data={resposts} />
+        <PostList type="posts" displayDelete={true} data={resposts} />
       </div>
     </div>
   );

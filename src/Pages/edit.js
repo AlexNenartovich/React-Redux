@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  useSearchParams,
+  useLocation
+} from "react-router-dom";
 
 const Edit = (props) => {
+  const location = useLocation();
+  const param = location.state.type;
   const params = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
@@ -9,9 +16,11 @@ const Edit = (props) => {
   const [dataKey, setDatakey] = useState("");
 
   const [sear] = useSearchParams();
-  console.log(sear.get("id"));
+
   useEffect(() => {
-    fetch(`https://react-project-ada3d-default-rtdb.firebaseio.com/posts.json/`)
+    fetch(
+      `https://react-project-ada3d-default-rtdb.firebaseio.com/${param}.json/`
+    )
       .then((res) => res.json())
       .then((data) => {
         let ar = [];
@@ -41,7 +50,7 @@ const Edit = (props) => {
       body
     };
     fetch(
-      `https://react-project-ada3d-default-rtdb.firebaseio.com/posts/${dataKey}.json`,
+      `https://react-project-ada3d-default-rtdb.firebaseio.com/${param}/${dataKey}.json`,
       {
         method: "PATCH",
         headers: {

@@ -3,7 +3,7 @@ import Post from "./Post";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-export default ({ data, displayDelete }) => {
+export default ({ data, displayDelete, type }) => {
   const [slice, setSlice] = useState(10);
   const [more, setMore] = useState(true);
   const incr = 10;
@@ -25,7 +25,7 @@ export default ({ data, displayDelete }) => {
   const res = data
     .slice(0, slice)
     .map((post, index) => (
-      <Post displayDelete={displayDelete} key={index} post={post} />
+      <Post type={type} displayDelete={displayDelete} key={index} post={post} />
     ));
 
   return (

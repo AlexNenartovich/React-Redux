@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Button from "@material-ui/core/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { addPost } from "../Actions/actions";
+import { addPost, addToFavorites } from "../Actions/actions";
 import { useNavigate } from "react-router-dom";
 
 const addMeetup = () => {
+  const [check, setCheck] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const titleRef = useRef();
@@ -17,7 +18,10 @@ const addMeetup = () => {
       title: titleRef.current.value,
       body: bodyRef.current.value
     };
-    dispatch(addPost(data));
+    if(check)
+      dispatch(addToFavorites(data));
+    else
+      dispatch(addPost(data));
     titleRef.current.value = "";
     bodyRef.current.value = "";
     navigate("/");
@@ -36,6 +40,11 @@ const addMeetup = () => {
           type="text"
           placeholder="Body"
         />
+      </div>
+      <br />
+      <div>
+        <input onChange={() => setCheck(!check)} value={check} type="checkbox" />
+        <span style={{ fontSize: 15, paddingLeft: 10}}>Add to favorites</span>
       </div>
       <br />
       <div style={{ paddingLeft: 70 }}>
